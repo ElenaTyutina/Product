@@ -7,7 +7,7 @@ public class ProductRepository {
     private Product[] items = new Product[0];
 
     public void save(Product item) {
-        Product[] tmp = new Product[items.length +1];
+        Product[] tmp = new Product[items.length + 1];
         System.arraycopy(items, 0, tmp, 0, items.length);
         tmp[tmp.length - 1] = item;
         this.items = tmp;
@@ -31,10 +31,10 @@ public class ProductRepository {
         if (findById(id) == null) {
             return;
         }
-        Product[] tmp = new Product[items.length -1];
+        Product[] tmp = new Product[items.length - 1];
         int index = 0;
         for (Product item : items) {
-            if(item.getId() != id) {
+            if (item.getId() != id) {
                 tmp[index] = item;
             }
             index++;

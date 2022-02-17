@@ -1,7 +1,9 @@
 package ru.netology.manager;
 
 import org.junit.jupiter.api.BeforeAll;
+
 import static org.junit.jupiter.api.Assertions.*;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import ru.netology.domain.Book;
@@ -12,12 +14,12 @@ import ru.netology.repo.ProductRepository;
 import static org.junit.jupiter.api.Assertions.*;
 
 class ProductManagerTest {
-    private final Product firstProduct = new Product(1,"firstProduct_me", 1);
-    private final Product secondProduct = new Product(2,"secondProduct", 2);
-    private final Book firstBook = new Book(3,"firstBook_me",3, "me");
-    private final Book secondBook = new Book(4,"secondBook",4, "you");
-    private final Smartphone firstSmartphone = new Smartphone(5,"firstBook",5, "me");
-    private final Smartphone secondSmartphone = new Smartphone(6,"secondBook",6, "you");
+    private final Product firstProduct = new Product(1, "firstProduct_me", 1);
+    private final Product secondProduct = new Product(2, "secondProduct", 2);
+    private final Book firstBook = new Book(3, "firstBook_me", 3, "me");
+    private final Book secondBook = new Book(4, "secondBook", 4, "you");
+    private final Smartphone firstSmartphone = new Smartphone(5, "firstSmartphone", 5, "me");
+    private final Smartphone secondSmartphone = new Smartphone(6, "secondSmartphone", 6, "you");
 
     private final ProductManager manager = new ProductManager(new ProductRepository());
 
@@ -31,6 +33,7 @@ class ProductManagerTest {
         manager.save(secondSmartphone);
 
     }
+
     @Test
     void shouldReturnByText() {
 
@@ -40,5 +43,22 @@ class ProductManagerTest {
         assertArrayEquals(expected, actual);
     }
 
+    @Test
+    void shouldReturnSmartPhoneByName() {
 
+        Product[] expected = {firstSmartphone , secondSmartphone};
+        Product[] actual = manager.searchBy("Smartphone");
+
+        assertArrayEquals(expected, actual);
+
+    }
+
+    @Test
+    void shouldReturnNothing() {
+
+        Product[] expected = {};
+        Product[] actual = manager.searchBy("69");
+
+        assertArrayEquals(expected, actual);
+    }
 }

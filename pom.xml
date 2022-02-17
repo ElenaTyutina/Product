@@ -2,7 +2,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <!--https://mvnrepository.com/artifact/org.projectlombok/lombok-maven-plugin-->
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>ru.netology</groupId>
@@ -50,29 +49,6 @@
                             <goal>report</goal>
                         </goals>
                     </execution>
-                    <!-- <execution>
-                         <id>checkVery</id>
-                         <phase>verify</phase>
-                         <goals>
-                             <goal>check</goal>
-                         </goals>
-                         <configuration>
-                             <rules>
-                                 <rules>
-                                     <rule>
-                                         <element>BUNDLE</element>
-                                         <limits>
-                                             <limit>
-                                                 <counter>BRANCH</counter>
-                                                 <value>COVEREDRATIO</value>
-                                                 <minimum>0%</minimum>
-                                             </limit>
-                                         </limits>
-                                     </rule>
-                                 </rules>
-                             </rules>
-                         </configuration>
-                     </execution>-->
                 </executions>
             </plugin>
             <plugin>
